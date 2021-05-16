@@ -1,0 +1,37 @@
+<!-- <p>search works!</p> -->
+
+
+
+
+    <div class="container-fluid">
+   
+      <form class="fomr-group">
+        <!-- https://api.spoonacular.com/recipes/findByIngredients?apiKey=01f0cb67dd234ad982fbcd5f8b65a851&ingredients=apples,+flour,+sugar&number=4 -->
+        <input class="form-control"  type="search" [(ngModel)]="mysearch" placeholder="Apples,Cranberries..." name='mysearch' aria-label="Search">
+        <input type="number" name="Num" [(ngModel)]='howmany' id="">
+        <br>
+        <button class="btn btn-outline-success" (click)='seraching()'>Search</button>
+      </form>
+    </div>
+  
+
+
+  <table class="table" *ngIf='myrecipes'>
+    <thead>
+      <tr>
+        <th scope="col">Number</th>
+        <th scope="col">Dish Name</th>
+        <th scope="col">Ingridients Missing</th>
+        <th scope="col">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = 'let item of myrecipes;index as i'>
+        <th scope="row">{{i+1}}</th>
+        <td>{{item.title}}</td>
+        <td>{{item.missedIngredients.length}}</td>
+        <td><button class="btn btn-outline-success" (click)='details(item.id)'>View More</button></td>
+      </tr>
+  
+    </tbody>
+  </table>

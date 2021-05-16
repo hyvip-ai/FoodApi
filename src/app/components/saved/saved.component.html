@@ -1,0 +1,17 @@
+<!-- <p>saved works!</p> -->
+<div class="container">
+  <div class="row justify-content-between" *ngIf='myresponsearray.length'>
+    <div class="col-5" *ngFor='let item of myresponsearray;index as i'>
+      <div class="card"  style="width: 18rem;" >
+          <img src="{{item.image}}" class="card-img-top" alt="Recipe">
+          <div class="card-body">
+            <h5 class="card-title">{{item.title}}</h5>
+            <p class="card-text">{{item.sourceName}}</p>
+            <a  class="btn btn-outline-info" (click) = 'gotodtails(item.id)'>Details</a>
+          </div>
+        </div>
+      
+      </div>
+  </div>
+</div>
+

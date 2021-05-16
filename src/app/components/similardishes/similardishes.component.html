@@ -1,0 +1,36 @@
+<!-- <p>similardishes works!</p> -->
+<!--  -->
+
+<div class="container">
+    <form class="form-group" autocomplete="off">
+        <input type="text" list="dish" [(ngModel)]='mydata' name="dishname" (keyup)='serachdish()'>
+   
+     
+    </form>
+</div>
+
+<div class="foodlist">
+    <table class="table" >
+        <thead>
+          <tr>
+            <th scope="col">Number</th>
+            <th scope="col">Name</th>
+          
+            <th>Details</th>
+
+
+          </tr>
+        </thead>
+        <tbody *ngIf = 'foodlist'>
+          <tr *ngFor='let item of foodlist;index as i'>
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.title}}</td>
+            <td><button class="btn btn-outline-success" (click)='showrecipe(item.id)'>Details</button></td>
+          
+            
+            <!-- <td><button class="btn btn-outline-success" >View More</button></td> -->
+
+        </tbody>
+      </table>
+</div>
+

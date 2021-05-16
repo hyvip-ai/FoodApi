@@ -1,0 +1,12 @@
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    
+}
+.card{
+    margin: 50px 50px;
+}
+
+*{
+    text-align: center;
+}

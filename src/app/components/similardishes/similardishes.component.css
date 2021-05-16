@@ -1,0 +1,19 @@
+input{
+    display:block;
+    height: 60px;
+    width: 80%;
+    margin: 50px auto;
+    border: none;
+    border-bottom: 2px solid black;
+    font-family: cursive;
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: center;
+}
+*{
+    text-align: center;
+}
+input:focus{
+    outline: none;
+}
+

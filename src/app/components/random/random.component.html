@@ -1,0 +1,55 @@
+<div class="container">
+    <form class="form-group" autocomplete="off">
+        <select name="type" id="type" [(ngModel)]='dishtype'>
+            <option value="breakfast">Breakfast</option>
+
+            <option value="lunch">Lunch</option>
+            <option value="snacks">Snacks</option>
+            <option value="Dinner">Dinner</option>
+            <option value="starter">Starter</option>
+            <option value="appetizer">appetizer</option>
+        </select>
+        <select name="cuisines" id="cuisines" [(ngModel)]='cuisine'>
+            <option value="indian">Indian</option>
+            <option value="spanish">Spanish</option>
+            <option value="turkish">Turkish</option>
+            <option value="Italian">Italian</option>
+            <option value="japanese">Japanese</option>
+            <option value="indonesian">Indonesian</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Mediterranean">Mediterranean</option>
+            <option value="European">European</option>
+
+        </select> 
+        <select name="diet" id="diet" [(ngModel)]='diet'>
+            <option value="gluten free">Gluten Free</option>
+            <option value="dairy free">Dairy Free</option>
+            <option value="primal">Primal</option>
+            <option value="pescatarian">Pescatarian</option>
+            <option value=""></option>
+        </select>
+               <input type="number" list="dish" [(ngModel)]='numberofdish' name="dishname">
+        <button class="btn btn-outline-success" (click)='Generate()'>Generate</button>
+     
+    </form>
+</div>
+
+
+<div class="content" *ngIf= 'mydishes'>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Name</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody *ngFor='let items of mydishes.recipes;index as i'>
+            <tr>
+                <th>{{i+1}}</th>
+                <td>{{items.title}}</td>
+                <td><button class="btn btn-outline-success" (click)='randomdetail(items.id)'>Details</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

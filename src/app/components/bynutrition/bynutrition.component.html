@@ -1,0 +1,45 @@
+<!-- <p>bynutrition works!</p> -->
+<div class="container">
+ <input type="number" name="protein" id="protein" max="100" min="10" placeholder="Protein 10 - 100 (in mg)" [(ngModel)]='protein'>
+ <input type="number" name="carbs" id="carbs" min="10" max='100' placeholder="Carbohydrates 10 - 100 (in mg)" [(ngModel)]='carbs'>
+ <input type="number" name="fat" id="fat" min="1" max="100" placeholder="Fat 1 - 100 (in mg)" [(ngModel)]='fat'>
+ <input type="number" name="calories" id="calories" min="50" max="800" placeholder="Calories 50 - 800 (in mg)" [(ngModel)]='calories'>
+
+ <input type="number" name="howmany" id="howmany" [(ngModel)]='howmany' placeholder="how many dishes you want in the result">
+</div>
+
+    <a class="btn btn-outline-primary" (click)='searchnutri()'>Search</a>
+<!-- 
+    https://api.spoonacular.com/recipes/findByNutrients?apiKey=01f0cb67dd234ad982fbcd5f8b65a851&minCarbs=10&maxCarbs=50&number=2 -->
+
+    <div class="myrecipes" *ngIf='myrecipes'>
+
+    <table class="table" >
+        <thead>
+          <tr>
+            <th scope="col">Number</th>
+            <th scope="col">Name</th>
+            <th scope="col">Protein</th>
+            <th scope="col">Carbohydrades</th>
+            <th scope="col">Fat</th>
+            <th scope="col">Calories</th>
+            <th>Details</th>
+
+
+          </tr>
+        </thead>
+        <tbody *ngFor='let item of myrecipes;index as i'>
+          <tr>
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.title}}</td>
+            <td>{{item.protein}}</td>
+            <td>{{item.carbs}}</td>
+            <td>{{item.fat}}</td>
+            <td>{{item.calories}}</td>
+            
+            <td><button class="btn btn-outline-success" (click)='showrecipe(item.id)'>View More</button></td>
+
+        </tbody>
+      </table>
+
+      </div>

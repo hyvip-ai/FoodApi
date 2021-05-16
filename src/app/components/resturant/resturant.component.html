@@ -1,0 +1,25 @@
+<form class="form-control">
+    <input type="text" [(ngModel)] = 'food' placeholder="Name The Food" name="myname">
+    <input type="number" name="mynum" placeholder="how many results you want" [(ngModel)] = 'num' id="num">
+    <button class="btn btn-outline-info" (click)='getdetails()'>Get Details</button>
+</form>
+
+
+
+<div class="container">
+    <div class="row justify-content-between" *ngIf='myresponsearray'>
+      <div class="col-5" *ngFor='let item of myresponsearray.menuItems;index as i'>
+        <div class="card"  style="width: 18rem;" >
+            <img src="{{item.image}}" class="card-img-top" alt="Recipe">
+            <div class="card-body">
+              <h5 class="card-title">{{item.title}}</h5>
+              <p class="card-text">Resturant Chain : {{item.restaurantChain}}</p>
+              <a  class="btn btn-outline-info" (click) = 'gotodtails(item.id)'>Details</a>
+            </div>
+          </div>
+        
+        </div>
+    </div>
+  </div>
+  
+  

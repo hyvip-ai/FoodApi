@@ -1,0 +1,163 @@
+<!-- <p>details works!</p> -->
+<div class="card text-center" *ngIf='myrecipe'>
+    <div class="card-header">
+      <h1>Recipe Details</h1>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"> {{myrecipe.title}}</h5>
+        <img src="{{myrecipe.image}}" alt="">
+       <div class="info container" style="padding: 20px; font-weight: bolder;font-family: cursive;color: royalblue;">
+        <div class="row">
+          <div class="col-6"> <h4>Ready Within : {{myrecipe.readyInMinutes}} minutes</h4></div>
+          <div class="col-6"><h4>Spoonacular Score : {{myrecipe.spoonacularScore}}</h4></div>
+        </div>
+        <div class="row">
+          <div class="col-6"><h4>Price Per Serving : ${{mymoney}}</h4></div>
+          <div class="col-6"><h4>Health Score : {{myrecipe.healthScore}}</h4></div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-12"><h4>Aggregate Likes : {{myrecipe.aggregateLikes}}</h4></div>
+        </div>
+  
+       </div>
+      <div class="ingridients" *ngIf='myrecipe.extendedIngredients'>
+          <h1>Ingredients Needed</h1>
+        <table class="table table-dark table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Number</th>
+                <th scope="col">Name</th>
+                <th scope="col">Amount</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let item of myrecipe.extendedIngredients;index as i'>
+                <th scope="row">{{i+1}}</th>
+                <td>{{item.name}}</td>
+                <td>{{item.amount}} {{item.unit}}</td>
+                
+              </tr>
+      
+            </tbody>
+          </table>
+      </div>
+  
+    
+  
+      <div class="steps" *ngIf='myrecipe.instructions'>
+        <h1>Steps of Recipe</h1>
+          <table class="table table-dark table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Number</th>
+                
+                <th scope="col">Step Descripsion</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let item of myrecipe.analyzedInstructions[0].steps'>
+                <th scope="row">{{item.number}} </th>
+               
+            
+                <td>{{item.step}}</td>
+              </tr>
+      
+            </tbody>
+          </table>
+      </div>
+  
+      <div class="nutrients" *ngIf='myrecipe.nutrition.nutrients'>
+          <h1>Nutrients Present</h1>
+        <table class="table table-success table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Number</th>
+                <th scope="col">Name</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Unit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let myitem of myrecipe.nutrition.nutrients;index as i'>
+                <th scope="row">{{i+1}}</th>
+                <td>{{myitem.name}}</td>
+                <td>{{myitem.amount}}</td>
+                <td>{{myitem.unit}}</td>
+              </tr>
+      
+            </tbody>
+          </table>
+      </div>
+  
+      <div class="diets" *ngIf='myrecipe.diets.length>0'>
+          <h1>Diets</h1>
+        <table class="table table-danger table-hover" >
+          <thead>
+              <tr>
+              <th>Number</th>
+              <th>Diets</th>
+              </tr>
+          </thead>
+  
+            <tbody>
+                <tr *ngFor='let item of myrecipe.diets;index as i'>
+                <th>{{i+1}}</th>
+                <td>{{item}}</td>
+                </tr>
+            </tbody>
+            
+          </table>
+      </div>
+  
+      <div class="dishtype" *ngIf='myrecipe.dishTypes'>
+          <h1>Dish Types</h1>
+        <table class="table table-primary table-hover">
+           
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let item of myrecipe.dishTypes;index as i'>
+              
+                <th>{{i+1}}</th>
+                <td>{{item}}</td>
+            </tbody>
+           
+            
+          </table>
+      </div>
+      <div class="winepairing" *ngIf='myrecipe.winePairing.length>0'>
+        <h1>Wine Pairing</h1>
+        <table class="table table-warning table-hover">
+          <thead>
+            <th>Number</th>
+            <th>Name</th>
+          </thead>
+          <tbody *ngFor='let items of myrecipe.winePairing.pairedWines;index as i'>
+            <tr>
+              <td>{{i+1}}</td>
+              <td>{{items}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="btn btn-outline-secondary" (click)='showsummary()'>Show Summary</button>
+      <p class="card-text" id="summary" style="background-color: rgb(206, 206, 206);padding: 20px; opacity: 0;transition: all 0.5s;margin-top: 30px;">
+    </p>
+    
+      <button class="btn btn-primary" (click)='gosearch()'>Go Back</button>
+    </div>
+    <div class="card-footer text-muted">
+     Source {{myrecipe.sourceName}}
+    </div>
+  
+  
+    
+  
+  
+  </div>

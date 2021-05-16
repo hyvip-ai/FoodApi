@@ -1,0 +1,28 @@
+form{
+    width: 80%;
+    display: block;
+    margin: 50px auto;
+}
+input{
+    width: 90%;
+    margin: 10px auto;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: row;
+  
+    
+}
+col-5{
+    height: auto;
+    
+}
+.card{
+   
+    height: 100%;
+}
+
+*{
+    text-align: center;
+}
