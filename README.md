@@ -1,4 +1,7 @@
-# Spotify
+
+So here in this project i have created a web application frontend with angular 10 and fetched data from a third party api spoonacular and as there is a limit of 150 request for free users i havn't completed it yet also i didn't used too much styling this is just for knowledge that how we can fetch data from api how to handle URL and all that things ald=so some pages aren't finished yet but I'm working on it and i think it will be done soon
+
+# Spoonacular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
 
